@@ -92,6 +92,10 @@ gboolean demo_test_out_async(
     DBusGMethodInvocation* async_out,
     GError **error);
 
+gboolean demo_test_error(
+    DemoObj *obj, 
+    GError **error);
+
 gboolean demo_test_send_signal(
     DemoObj *obj, 
     GError **error);

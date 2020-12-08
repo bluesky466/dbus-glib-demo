@@ -235,6 +235,18 @@ void test_me_linjw_dbus_demo_test_dict_in_out(DBusGProxy* remote_object) {
     g_hash_table_destroy(dict_in);
     g_hash_table_destroy(dict_out);
 }
+
+void test_me_linjw_dbus_demo_test_error(DBusGProxy* remote_object) {
+    GError *error = NULL;
+
+    if (me_linjw_dbus_demo_test_error(remote_object,  &error)) {
+        printf("call me_linjw_dbus_demo_test_error success\n\n");
+    } else if(error!=NULL) {
+        printf("call me_linjw_dbus_demo_test_error error %s\n\n", error->message);
+    } else {
+        printf("call me_linjw_dbus_demo_test_error error and error is null\n\n");
+    }
+}
 	
 int main() {
     DBusGProxy* remote_object = connect_server(DEMO_DBUS_BUS_TYPE, PATH_NAME, INTERFACE_NAME);
@@ -249,6 +261,7 @@ int main() {
     test_me_linjw_dbus_demo_test_struct_in_out(remote_object);
     test_me_linjw_dbus_demo_test_struct_array_in_out(remote_object);
     test_me_linjw_dbus_demo_test_dict_in_out(remote_object);
+    test_me_linjw_dbus_demo_test_error(remote_object);
 
     GError *error = NULL;
     me_linjw_dbus_demo_test_send_signal(remote_object, &error);

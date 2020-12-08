@@ -56,6 +56,9 @@
        <arg name="async_out" type="s" direction="out"/>
     </method>
 
+    <method name="test_error">
+    </method>
+
     <method name="test_send_signal">
     </method>
 

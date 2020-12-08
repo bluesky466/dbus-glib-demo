@@ -327,8 +327,12 @@ gboolean demo_test_out_async(
 		}
 		printf("\n");
 		return TRUE;
-	}
+}
 
+gboolean demo_test_error(DemoObj *obj, GError **error) {
+	g_set_error(error, G_FILE_ERROR, G_FILE_ERROR_NOENT, "demo_test_error");
+	return FALSE;
+}
 
 gboolean demo_test_send_signal(
     DemoObj *obj, 
