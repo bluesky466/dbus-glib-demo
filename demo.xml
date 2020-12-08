@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node name="/">
+
+  <interface name="me.linjw.dbus.demo">
+    <method name="test_sample_type_in_out">
+        <arg name="bool_in" type="b"/>
+        <arg name="double_in" type="d"/>
+        <arg name="int32_in" type="i"/>
+        <arg name="int64_in" type="x"/>
+        <arg name="uint8_in" type="y"/>
+        <arg name="uint32_in" type="u"/>
+        <arg name="uint64_in" type="t"/>
+        <arg name="str_in" type="s"/>
+
+        <arg name="bool_out" type="b" direction="out"/>
+        <arg name="double_out" type="d" direction="out"/>
+        <arg name="int32_out" type="i" direction="out"/>
+        <arg name="int64_out" type="x" direction="out"/>
+        <arg name="uint8_out" type="y" direction="out"/>
+        <arg name="uint32_out" type="u" direction="out"/>
+        <arg name="uint64_out" type="t" direction="out"/>
+        <arg name="str_out" type="s" direction="out"/>
+    </method>
+
+    <method name="test_value_in_out">
+        <arg name="value_in" type="v"/>
+        <arg name="value_out" type="v" direction="out"/>
+    </method>
+    
+    <method name="test_array_in_out">
+      <arg name="array_bool_in" type="ab"/>
+      <arg name="array_str_in" type="as"/>
+      
+      <arg name="array_bool_out" type="ab" direction="out"/>
+      <arg name="array_str_out" type="as" direction="out"/>
+    </method>
+
+    <method name="test_struct_in_out">
+        <arg name="value_in" type="(is)"/>
+        <arg name="value_out" type="(is)" direction="out"/>
+    </method>
+
+    <method name="test_struct_array_in_out">
+        <arg name="value_in" type="a(is)"/>
+        <arg name="value_out" type="a(is)" direction="out"/>
+    </method>
+
+    <method name="test_dict_in_out">
+        <arg name="value_in" type="a{ss}"/>
+        <arg name="value_out" type="a{ss}" direction="out"/>
+    </method>
+
+    <method name="test_out_async">
+       <annotation name="org.freedesktop.DBus.GLib.Async" value="" />
+       <arg name="async_out" type="s" direction="out"/>
+    </method>
+
+    <method name="test_send_signal">
+    </method>
+
+    <signal name="test_signal">
+       <arg name="data" type="a{ss}"/>
+    </signal>
+  </interface>
+</node>
